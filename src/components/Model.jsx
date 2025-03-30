@@ -20,6 +20,7 @@ const Model = ({ onClose, isOpen, children }) => {
             className="self-end text-2xl cursor-pointer"
           />
         </div>
+        
         {children}
       </div>
     </div>,

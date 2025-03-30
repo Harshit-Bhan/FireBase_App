@@ -33,6 +33,7 @@ const ContactCard = ({ contact }) => {
         <CgProfile className="text-4xl text-orange-400" />
         <div className="flex flex-col flex-grow">
           <h2 className="text-black font-bold whitespace-nowrap">{contact.name}</h2>
+          
           <p className="text-black font-semibold overflow-hidden text-ellipsis">{contact.email}</p>
         </div>
         <div className="flex gap-3 text-[22px] ml-auto">
