@@ -35,6 +35,7 @@ const ContactCard = ({ contact }) => {
           <h2 className="text-black font-bold whitespace-nowrap">{contact.name}</h2>
           
           <p className="text-black font-semibold overflow-hidden text-ellipsis">{contact.email}</p>
+          
         </div>
         <div className="flex gap-3 text-[22px] ml-auto">
           <FaEdit onClick={onOpen} className="cursor-pointer text-orange-400" />

@@ -18,6 +18,7 @@ const App = () => {
 
   const onClose = () => {
     
+    
     setOpen(false);
   }
 

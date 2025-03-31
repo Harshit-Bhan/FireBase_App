@@ -12,3 +12,4 @@ const useDisclosure = () => {
 };
 
 export default useDisclosure;
+

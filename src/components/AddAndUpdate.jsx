@@ -16,6 +16,7 @@ const AddAndUpdateContact = ({ isOpen, onClose, isUpdate, contact }) => {
     } catch (error) {
       console.log(error);
     }
+    
   };
 
   const updateContact = async (contact, id) => {

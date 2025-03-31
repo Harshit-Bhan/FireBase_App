@@ -25,6 +25,7 @@ const Model = ({ onClose, isOpen, children }) => {
       </div>
     </div>,
     document.getElementById("modal-root")
+    
   );
 };
 
