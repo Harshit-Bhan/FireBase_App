@@ -4,11 +4,17 @@ import React from "react";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../config/firebase";
 import { toast } from "react-toastify";
+import * as Yup from "yup"
+
+const contactSchemaValidation = Yup.object().shape({
+  name:Yup.string().required("Name is required"),
+  email:Yup.string().email("Invalid Email").required("Email is required"),
+});
 
 const AddAndUpdateContact = ({ isOpen, onClose, isUpdate, contact }) => {
   const addContact = async (contact) => {
     try {
-      const contactRef = collection(db, "contact");
+      const contactRef = collection(db, "contacts");
       await addDoc(contactRef, contact);
       
       onClose();
@@ -16,12 +22,11 @@ const AddAndUpdateContact = ({ isOpen, onClose, isUpdate, contact }) => {
     } catch (error) {
       console.log(error);
     }
-    
   };
 
   const updateContact = async (contact, id) => {
     try {
-      const contactRef = doc(db, "contact", id);
+      const contactRef = doc(db, "contacts", id);
       await updateDoc(contactRef, contact);
       onClose();
       toast.success("Contact Updated Successfully");
@@ -38,7 +43,8 @@ const AddAndUpdateContact = ({ isOpen, onClose, isUpdate, contact }) => {
     <div>
       <Model isOpen={isOpen} onClose={onClose}>
         <Formik
-          enableReinitialize={true}  // 🔥 This allows the form to update when `contact` changes
+          validationSchema={contactSchemaValidation}
+          enableReinitialize={true}  
           initialValues={
             isUpdate && contact
               ? {
